@@ -11,7 +11,7 @@ In private, I suggest gentoo if possible.<(￣︶￣)>
 
 Basic system setup method is :
 
-```
+```shell
 # install epel mirror for CentOS
 yum install epel-release -y
 # update all system
@@ -40,7 +40,7 @@ Here is an script for auto-replace firewalld with iptables on CentOS 7.
 You **should**  execute it by a `bash init.sh` and **should not** execute it line by line.
 
 
-```
+```shell
 # stop and set auto-start off
 service firewalld stop  
 chkconfig firewalld off
@@ -82,7 +82,7 @@ Under most conditions, we consider it as useless.
 
 Here is a small script for disabling selinux:
 
-```
+```shell
 sed -i "s/SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config
 setenforce 0 
 ``` 
@@ -106,7 +106,7 @@ Flannel still have an mode like `master - slave` mode, which works the mesh netw
 
 Here is an script to setup a flannel registration server. Only the registration server need to do this. 
 
-```
+```shell
 ## Here we commented the firewall setting.
 ## ensure tcp/2379 on tcp server.
 ## only etcd server need to do this. 
@@ -133,7 +133,7 @@ etcdctl set /aaa.com/network/config '{"Network": "10.0.0.0/8", "Backend": {"Type
 
 Here is an script to setup a flannel network.
 
-```
+```shell
 ### you must ensure you have an etcd server with ip or domain, for example 8.8.8.8:2379 or etcd.aaa.com:2379
 # install flannel
 yum install flannel -y
@@ -152,7 +152,7 @@ Just use docker.
 
 Installation and setup guide:
 
-```
+```shell
 yum install docker -y
 service docker restart
 chkconfig docker on
